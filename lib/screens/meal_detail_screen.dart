@@ -54,7 +54,7 @@ class MealDetailScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            buildSectionTitle(context, 'Ingredients'),
+            buildSectionTitle(context, 'Cast'),
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Card(
@@ -64,28 +64,28 @@ class MealDetailScreen extends StatelessWidget {
                             vertical: 5,
                             horizontal: 10,
                           ),
-                          child: Text(selectedMeal.ingredients[index])),
+                          child: Text(selectedMeal.cast[index])),
                     ),
-                itemCount: selectedMeal.ingredients.length,
+                itemCount: selectedMeal.cast.length,
               ),
             ),
-            buildSectionTitle(context, 'Steps'),
+            buildSectionTitle(context, 'Details'),
             buildContainer(
               ListView.builder(
                 itemBuilder: (ctx, index) => Column(
                       children: [
                         ListTile(
-                          leading: CircleAvatar(
-                            child: Text('# ${(index + 1)}'),
-                          ),
+                          // leading: CircleAvatar(
+                          //   child: Text('# ${(index + 1)}'),
+                          // ),
                           title: Text(
-                            selectedMeal.steps[index],
+                            selectedMeal.story[index],
                           ),
                         ),
                         Divider()
                       ],
                     ),
-                itemCount: selectedMeal.steps.length,
+                itemCount: selectedMeal.story.length,
               ),
             ),
           ],

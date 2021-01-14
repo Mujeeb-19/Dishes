@@ -8,43 +8,43 @@ class MealItem extends StatelessWidget {
   final String title;
   final String imageUrl;
   final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final EditorsChoice editorsChoice;
+  final Reviews reviews;
 
   MealItem(
       {@required this.id,
       @required this.title,
       @required this.imageUrl,
-      @required this.affordability,
-      @required this.complexity,
+      @required this.reviews,
+      @required this.editorsChoice,
       @required this.duration,});
 
-  String get complexityText {
-    switch (complexity) {
-      case Complexity.Simple:
-        return 'Simple';
+  String get editorsChoiceText {
+    switch (editorsChoice) {
+      case EditorsChoice.Nope:
+        return 'Nope';
         break;
-      case Complexity.Challenging:
-        return 'Challenging';
+      case EditorsChoice.NotBAd:
+        return 'Not Bad';
         break;
-      case Complexity.Hard:
-        return 'Hard';
+      case EditorsChoice.Best:
+        return 'BEst';
         break;
       default:
         return 'Unknown';
     }
   }
 
-  String get affordabilityText {
-    switch (affordability) {
-      case Affordability.Affordable:
-        return 'Affordable';
+  String get reviewsText {
+    switch (reviews) {
+      case Reviews.Bad:
+        return 'Bad';
         break;
-      case Affordability.Pricey:
-        return 'Pricey';
+      case Reviews.Good:
+        return 'Good';
         break;
-      case Affordability.Luxurious:
-        return 'Expensive';
+      case Reviews.Lovedit:
+        return 'Loved it!';
         break;
       default:
         return 'Unknown';
@@ -132,23 +132,23 @@ class MealItem extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Icon(
-                        Icons.work,
+                        Icons.person_pin,
                       ),
                       SizedBox(
                         width: 6,
                       ),
-                      Text(complexityText),
+                      Text(editorsChoiceText),
                     ],
                   ),
                   Row(
                     children: <Widget>[
                       Icon(
-                        Icons.attach_money,
+                        Icons.people,
                       ),
                       SizedBox(
                         width: 6,
                       ),
-                      Text(affordabilityText),
+                      Text(reviewsText),
                     ],
                   ),
                 ],
